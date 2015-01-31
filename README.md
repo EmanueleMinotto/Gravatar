@@ -1,4 +1,4 @@
-PlaceholdIt Provider [![Build Status](https://travis-ci.org/EmanueleMinotto/Gravatar.svg)](https://travis-ci.org/EmanueleMinotto/Gravatar)
+Gravatar [![Build Status](https://travis-ci.org/EmanueleMinotto/Gravatar.svg)](https://travis-ci.org/EmanueleMinotto/Gravatar)
 ====================
 
 PHP library for [gravatar.com](http://www.gravatar.com/) based on [Guzzle 5](http://docs.guzzlephp.org/en/latest/).
