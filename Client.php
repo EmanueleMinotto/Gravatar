@@ -4,6 +4,7 @@ namespace EmanueleMinotto\Gravatar;
 
 use GuzzleHttp\Client as GuzzleHttp_Client;
 use GuzzleHttp\ClientInterface as GuzzleHttp_ClientInterface;
+use GuzzleHttp\Exception\ClientException as GuzzleHttp_ClientException;
 
 /**
  * PHP library for gravatar.com
@@ -66,7 +67,7 @@ class Client
     {
         $url = 'https://www.gravatar.com/';
 
-        $url .= md5(strtolower($email)).'.';
+        $url .= md5(strtolower(trim($email))).'.';
         $url .= in_array($format, ['json', 'xml', 'php', 'vcf', 'qr']) ? $format : 'json';
 
         if ($options) {
@@ -107,7 +108,7 @@ class Client
     {
         $url = 'https://www.gravatar.com/avatar/';
 
-        $url .= md5(strtolower($email)).'.'.$extension;
+        $url .= md5(strtolower(trim($email))).'.'.$extension;
 
         $url .= '?'.http_build_query([
             'd' => $default,
@@ -139,5 +140,23 @@ class Client
         $mimeType = $response->getHeader('content-type');
 
         return 'data:'.$mimeType.';base64,'.base64_encode($content);
+    }
+
+    /**
+     * Used to check if a gravatar exists.
+     *
+     * @param string $email User email.
+     *
+     * @return boolean
+     */
+    public function exists($email)
+    {
+        try {
+            $this->getProfile($email);
+
+            return true;
+        } catch (GuzzleHttp_ClientException $e) {
+            return false;
+        }
     }
 }

@@ -53,6 +53,9 @@ class ClientTest extends PHPUnit_Framework_TestCase
         $this->assertStringStartsWith('https://www.gravatar.com/', $url);
     }
 
+    /**
+     * @return array
+     */
     public function getProfileUrlDataProvider()
     {
         return [
@@ -122,6 +125,9 @@ class ClientTest extends PHPUnit_Framework_TestCase
         $this->assertStringStartsWith('data:image/', $uri);
     }
 
+    /**
+     * @return array
+     */
     public function getAvatarMethodsDataProvider()
     {
         return [
@@ -134,5 +140,16 @@ class ClientTest extends PHPUnit_Framework_TestCase
             ['beau.lebens@gmail.com', 50, 'png', 404],
             ['beau.lebens@gmail.com', 50, 'png', 404, 'g'],
         ];
+    }
+
+    /**
+     * @covers ::exists
+     */
+    public function testExists()
+    {
+        $client = new Client();
+
+        $this->assertFalse($client->exists('test'));
+        $this->assertTrue($client->exists('beau.lebens@gmail.com'));
     }
 }
