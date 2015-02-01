@@ -14,7 +14,7 @@ $ composer require emanueleminotto/gravatar
 
 ## Usage
 
-This library expose 4 APIs:
+This library expose 5 APIs:
 
 ```php
 use EmanueleMinotto\Gravatar\Client;
@@ -41,4 +41,21 @@ $img = $client->getAvatarUrl('user@example.com', 150); // https://www.gravatar.c
 
 $img = $client->getAvatar('user@example.com'); // data URI
 $img = $client->getAvatar('user@example.com', 150); // data URI
+
+$exists = $client->exists('user@example.com'); // true
+$exists = $client->exists('wrong'); // false
+```
+
+## Twig Extension
+
+In this library is included a [Twig](http://twig.sensiolabs.org/) extension to allow a simple integration.
+
+```twig
+{% if email is gravatar %} {# this test check if the gravatar exists %}
+    
+    <a href="{{ email|gravatar_profile_url }}">
+        <img src="{{ email|gravatar_url }}" alt="{{ gravatar_profile(email).profileUrl }}"/>
+    </a>
+
+{% endif %}
 ```
