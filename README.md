@@ -51,7 +51,7 @@ $exists = $client->exists('wrong'); // false
 In this library is included a [Twig](http://twig.sensiolabs.org/) extension to allow a simple integration.
 
 ```twig
-{% if email is gravatar %} {# this test check if the gravatar exists %}
+{% if email is gravatar %} {# this test check if the gravatar exists #}
     
     <a href="{{ email|gravatar_profile_url }}">
         <img src="{{ email|gravatar_url }}" alt="{{ gravatar_profile(email).profileUrl }}"/>
