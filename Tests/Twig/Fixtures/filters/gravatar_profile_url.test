@@ -1,0 +1,12 @@
+--TEST--
+"gravatar_profile_url" filter
+--TEMPLATE--
+{{ correct|gravatar_profile_url }}
+{{ wrong|gravatar_profile_url }}
+--DATA--
+return array(
+    'correct' => 'beau.lebens@gmail.com',
+    'wrong' => 'user',
+)
+--EXPECT--
+http://gravatar.com/beau

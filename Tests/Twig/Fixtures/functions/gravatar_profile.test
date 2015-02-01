@@ -1,0 +1,12 @@
+--TEST--
+"gravatar_profile" function
+--TEMPLATE--
+{{ gravatar_profile(user) is not empty ? 1 : 0 }}
+{{ gravatar_profile(user) is iterable ? 1 : 0 }}
+--DATA--
+return array(
+    'user' => 'beau.lebens@gmail.com',
+)
+--EXPECT--
+1
+1

@@ -1,0 +1,13 @@
+--TEST--
+"gravatar_url" function
+--TEMPLATE--
+{{ gravatar_url(correct) }}
+{{ gravatar_url(wrong) }}
+--DATA--
+return array(
+    'correct' => 'beau.lebens@gmail.com',
+    'wrong' => 'user',
+)
+--EXPECT--
+https://www.gravatar.com/avatar/7884e0b9e894c359b25e8b41212c01e5.jpg?d=404&amp;r=g&amp;s=80
+https://www.gravatar.com/avatar/ee11cbb19052e40b07aac0ca060c23ee.jpg?d=404&amp;r=g&amp;s=80

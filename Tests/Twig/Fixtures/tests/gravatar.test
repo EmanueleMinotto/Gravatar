@@ -1,0 +1,13 @@
+--TEST--
+"gravatar" test
+--TEMPLATE--
+{{ correct is gravatar ? 1 : 0 }}
+{{ wrong is gravatar ? 1 : 0 }}
+--DATA--
+return array(
+    'correct' => 'beau.lebens@gmail.com',
+    'wrong' => 'user',
+)
+--EXPECT--
+1
+0

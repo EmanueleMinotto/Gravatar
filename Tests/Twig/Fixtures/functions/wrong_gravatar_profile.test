@@ -1,0 +1,10 @@
+--TEST--
+wrong "gravatar_profile" function
+--TEMPLATE--
+{{ gravatar_profile(wrong) }}
+--DATA--
+return array(
+    'wrong' => 'user',
+)
+--EXPECT--
+Twig_Error: Twig_Error_Runtime: An exception has been thrown during the rendering of a template ("Client error response [url] http://en.gravatar.com/ee11cbb19052e40b07aac0ca060c23ee.json [status code] 404 [reason phrase] Not Found") in "index.twig" at line 2 in "functions/wrong_gravatar_profile.test".

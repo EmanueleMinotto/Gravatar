@@ -12,7 +12,8 @@
     },
     "description": "PHP library for gravatar.com",
     "keywords": [
-        "gravatar"
+        "gravatar",
+        "twig"
     ],
     "license": "MIT",
     "name": "emanueleminotto/gravatar",
@@ -20,6 +21,10 @@
         "guzzlehttp/guzzle": "~5.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.4"
+        "phpunit/phpunit": "~4.4",
+        "twig/twig": "~1.12"
+    },
+    "suggest": {
+        "twig/twig": "Allows Twig extension integration."
     }
 }
