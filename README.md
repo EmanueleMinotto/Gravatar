@@ -14,7 +14,7 @@ $ composer require emanueleminotto/gravatar
 
 ## Usage
 
-This library expose 5 APIs:
+This library exposes 5 APIs:
 
 ```php
 use EmanueleMinotto\Gravatar\Client;
@@ -26,13 +26,14 @@ $url = $client->getProfileUrl('user@example.com'); // https://www.gravatar.com/b
 $qrcode = $client->getProfileUrl('user@example.com', 'qr'); // https://www.gravatar.com/b58996c504c5638798eb6b511e6f49af.qr
 $qrcode = $client->getProfileUrl('user@example.com', 'json', [
     'callback' => 'alert',
-]); // https://www.gravatar.com/b58996c504c5638798eb6b511e6f49af.qr
+]); // https://www.gravatar.com/b58996c504c5638798eb6b511e6f49af.json?callback=alert
 
 $profile = $client->getProfile('user@example.com');
 // array(
 //   "id" => "b58996c504c5638798eb6b511e6f49af",
 //   "hash" => "b58996c504c5638798eb6b511e6f49af",
 //   "preferredUsername" => "example user",
+//   ...
 // )
 
 // user avatar
@@ -48,14 +49,15 @@ $exists = $client->exists('wrong'); // false
 
 ## Twig Extension
 
-In this library is included a [Twig](http://twig.sensiolabs.org/) extension to allow a simple integration.
+In this library there's included a [Twig](http://twig.sensiolabs.org/) extension to allow a simple integration with frameworks.
 
 ```twig
 {% if email is gravatar %} {# this test check if the gravatar exists #}
-    
     <a href="{{ email|gravatar_profile_url }}">
-        <img src="{{ email|gravatar_url }}" alt="{{ gravatar_profile(email).profileUrl }}"/>
+        <img
+            src="{{ email|gravatar_url }}"
+            alt="{{ gravatar_profile(email).profileUrl }}"
+        />
     </a>
-
 {% endif %}
 ```
