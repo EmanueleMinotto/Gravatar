@@ -25,6 +25,6 @@
         "twig/twig": "~1.12"
     },
     "suggest": {
-        "twig/twig": "Allows Twig extension integration."
+        "twig/twig": "allows Twig extension integration"
     }
 }
