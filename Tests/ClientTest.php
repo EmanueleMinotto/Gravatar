@@ -20,7 +20,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
     {
         $guzzle = new GuzzleHttp_Client();
 
-        $client = new Client($guzzle);
+        new Client($guzzle);
     }
 
     /**
@@ -95,7 +95,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
     {
         $client = new Client();
 
-        $data = $client->getProfile('wrong-user');
+        $client->getProfile('wrong-user');
     }
 
     /**
