@@ -1,7 +1,15 @@
-Gravatar [![Build Status](https://travis-ci.org/EmanueleMinotto/Gravatar.svg)](https://travis-ci.org/EmanueleMinotto/Gravatar)
-====================
+Gravatar
+========
+
+[![Build Status](https://img.shields.io/travis/EmanueleMinotto/Gravatar.svg?style=flat)](https://travis-ci.org/EmanueleMinotto/Gravatar)
+[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/9d962121-4ec7-4b65-bd06-62299424a180.svg?style=flat)](https://insight.sensiolabs.com/projects/9d962121-4ec7-4b65-bd06-62299424a180)
+[![Coverage Status](https://img.shields.io/coveralls/EmanueleMinotto/Gravatar.svg?style=flat)](https://coveralls.io/r/EmanueleMinotto/Gravatar)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/EmanueleMinotto/Gravatar.svg?style=flat)](https://scrutinizer-ci.com/g/EmanueleMinotto/Gravatar/)
+[![Total Downloads](https://img.shields.io/packagist/dt/emanueleminotto/gravatar.svg?style=flat)](https://packagist.org/packages/emanueleminotto/gravatar)
 
 PHP library for [gravatar.com](http://www.gravatar.com/) based on [Guzzle 5](http://docs.guzzlephp.org/en/latest/).
+
+API: [emanueleminotto.github.io/Gravatar](http://emanueleminotto.github.io/Gravatar/)
 
 ## Install
 Install Silex using [Composer](http://getcomposer.org/).
