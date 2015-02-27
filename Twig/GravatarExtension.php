@@ -17,6 +17,8 @@ use Twig_SimpleTest;
 class GravatarExtension extends Twig_Extension
 {
     /**
+     * Gravatar library client.
+     *
      * @var Client
      */
     private $client;
@@ -24,7 +26,7 @@ class GravatarExtension extends Twig_Extension
     /**
      * Class constructor with optional client.
      *
-     * @param Client|null $client
+     * @param Client|null $client Gravatar library client.
      */
     public function __construct(Client $client = null)
     {
@@ -42,7 +44,7 @@ class GravatarExtension extends Twig_Extension
             new Twig_SimpleFilter('gravatar_profile_url', function ($email) {
                 try {
                     $profile = $this->client->getProfile($email);
-                } catch (ClientException $e) {
+                } catch (ClientException $exception) {
                     return;
                 }
 

@@ -18,14 +18,14 @@ class Client
     /**
      * Guzzle HTTP client.
      *
-     * @var \GuzzleHttp\ClientInterface
+     * @var GuzzleHttp_Client
      */
     private $httpClient;
 
     /**
      * Class constructor, with an alternative Guzzle HTTP client (optional).
      *
-     * @param \GuzzleHttp\ClientInterface|null $httpClient
+     * @param GuzzleHttp_ClientInterface|null $httpClient Guzzle 4/5 client.
      */
     public function __construct(GuzzleHttp_ClientInterface $httpClient = null)
     {
@@ -35,7 +35,9 @@ class Client
     /**
      * HTTP client setter.
      *
-     * @param \GuzzleHttp\ClientInterface $httpClient
+     * @param GuzzleHttp_ClientInterface $httpClient Guzzle 4/5 client.
+     *
+     * @return self
      */
     public function setHttpClient(GuzzleHttp_ClientInterface $httpClient)
     {
@@ -55,7 +57,7 @@ class Client
     }
 
     /**
-     * Get user profile on gravatar.com
+     * Get user profile on gravatar.com.
      *
      * @param string $email   User email.
      * @param string $format  Request format (default json).
@@ -88,7 +90,10 @@ class Client
     {
         $url = $this->getProfileUrl($email);
 
-        $data = $this->httpClient->get($url)->json();
+        $httpClient =& $this->httpClient;
+        $response = $httpClient->get($url);
+
+        $data = $response->json();
 
         return $data['entry'][0];
     }
@@ -155,7 +160,7 @@ class Client
             $this->getProfile($email);
 
             return true;
-        } catch (GuzzleHttp_ClientException $e) {
+        } catch (GuzzleHttp_ClientException $exception) {
             return false;
         }
     }

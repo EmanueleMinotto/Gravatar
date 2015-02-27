@@ -13,7 +13,9 @@ use Twig_Test_IntegrationTestCase;
 class GravatarExtensionTest extends Twig_Test_IntegrationTestCase
 {
     /**
-     * {@inheritdoc}
+     * Tested extension and required dependencies for functional tests.
+     *
+     * @return array
      */
     public function getExtensions()
     {
@@ -23,7 +25,9 @@ class GravatarExtensionTest extends Twig_Test_IntegrationTestCase
     }
 
     /**
-     * {@inheritdoc}
+     * Fixtures directory.
+     *
+     * @return string
      */
     public function getFixturesDir()
     {

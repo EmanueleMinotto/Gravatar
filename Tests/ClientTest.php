@@ -14,7 +14,11 @@ use PHPUnit_Framework_TestCase;
 class ClientTest extends PHPUnit_Framework_TestCase
 {
     /**
+     * Test constructor.
+     * 
      * @covers ::__construct
+     *
+     * @return void
      */
     public function testConstruct()
     {
@@ -24,8 +28,12 @@ class ClientTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test accessors.
+     * 
      * @covers ::getHttpClient
      * @covers ::setHttpClient
+     *
+     * @return void
      */
     public function testHttpClientAccessors()
     {
@@ -38,8 +46,16 @@ class ClientTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test profile URLs.
+     *
+     * @param string $email   User email.
+     * @param string $format  Request format (default json).
+     * @param array  $options Request options.
+     * 
      * @covers ::getProfileUrl
      * @dataProvider getProfileUrlDataProvider
+     *
+     * @return void
      */
     public function testGetProfileUrl($email, $format = 'json', array $options = array())
     {
@@ -54,6 +70,8 @@ class ClientTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Example profiles.
+     * 
      * @return array
      */
     public function getProfileUrlDataProvider()
@@ -71,7 +89,11 @@ class ClientTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test profile data.
+     * 
      * @covers ::getProfile
+     *
+     * @return void
      */
     public function testGetProfile()
     {
@@ -88,8 +110,12 @@ class ClientTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test wrong profile request.
+     * 
      * @covers ::getProfile
      * @expectedException \GuzzleHttp\Exception\ClientException
+     *
+     * @return void
      */
     public function testGetProfileWrong()
     {
@@ -99,8 +125,18 @@ class ClientTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test gravatar.com avatars URLs.
+     *
+     * @param string  $email     User email.
+     * @param integer $size      Image size (default 80).
+     * @param string  $extension Image extension (default jpg).
+     * @param integer $default   Error response (default 404).
+     * @param string  $rating    Image rating (default G).
+     * 
      * @covers ::getAvatarUrl
      * @dataProvider getAvatarMethodsDataProvider
+     *
+     * @return void
      */
     public function testGetAvatarUrl($email, $size = 80, $extension = 'jpg', $default = 404, $rating = 'g')
     {
@@ -113,8 +149,18 @@ class ClientTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test gravatar.com avatars URLs (as data URIs).
+     *
+     * @param string  $email     User email.
+     * @param integer $size      Image size (default 80).
+     * @param string  $extension Image extension (default jpg).
+     * @param integer $default   Error response (default 404).
+     * @param string  $rating    Image rating (default G).
+     * 
      * @covers ::getAvatar
      * @dataProvider getAvatarMethodsDataProvider
+     *
+     * @return void
      */
     public function testGetAvatar($email, $size = 80, $extension = 'jpg', $default = 404, $rating = 'g')
     {
@@ -126,6 +172,8 @@ class ClientTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Example avatars.
+     * 
      * @return array
      */
     public function getAvatarMethodsDataProvider()
@@ -143,7 +191,11 @@ class ClientTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test if a user exists.
+     * 
      * @covers ::exists
+     *
+     * @return void
      */
     public function testExists()
     {
