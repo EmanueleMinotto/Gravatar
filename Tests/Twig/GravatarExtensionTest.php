@@ -19,9 +19,9 @@ class GravatarExtensionTest extends Twig_Test_IntegrationTestCase
      */
     public function getExtensions()
     {
-        return array(
+        return [
             new GravatarExtension(),
-        );
+        ];
     }
 
     /**

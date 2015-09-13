@@ -50,7 +50,7 @@ class GravatarExtension extends Twig_Extension
 
                 return $profile['profileUrl'];
             }),
-            new Twig_SimpleFilter('gravatar_url', array($this->client, 'getAvatarUrl')),
+            new Twig_SimpleFilter('gravatar_url', [$this->client, 'getAvatarUrl']),
         ];
     }
 
@@ -62,9 +62,9 @@ class GravatarExtension extends Twig_Extension
     public function getFunctions()
     {
         return [
-            new Twig_SimpleFunction('gravatar', array($this->client, 'getAvatar')),
-            new Twig_SimpleFunction('gravatar_profile', array($this->client, 'getProfile')),
-            new Twig_SimpleFunction('gravatar_url', array($this->client, 'getAvatarUrl')),
+            new Twig_SimpleFunction('gravatar', [$this->client, 'getAvatar']),
+            new Twig_SimpleFunction('gravatar_profile', [$this->client, 'getProfile']),
+            new Twig_SimpleFunction('gravatar_url', [$this->client, 'getAvatarUrl']),
         ];
     }
 
@@ -76,7 +76,7 @@ class GravatarExtension extends Twig_Extension
     public function getTests()
     {
         return [
-            new Twig_SimpleTest('gravatar', array($this->client, 'exists')),
+            new Twig_SimpleTest('gravatar', [$this->client, 'exists']),
         ];
     }
 
