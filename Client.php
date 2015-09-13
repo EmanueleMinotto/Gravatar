@@ -7,7 +7,7 @@ use GuzzleHttp\ClientInterface as GuzzleHttp_ClientInterface;
 use GuzzleHttp\Exception\ClientException as GuzzleHttp_ClientException;
 
 /**
- * PHP library for gravatar.com
+ * PHP library for gravatar.com.
  *
  * @author Emanuele Minotto <minottoemanuele@gmail.com>
  *
@@ -65,7 +65,7 @@ class Client
      *
      * @return string
      */
-    public function getProfileUrl($email, $format = 'json', array $options = array())
+    public function getProfileUrl($email, $format = 'json', array $options = [])
     {
         $url = 'https://www.gravatar.com/';
 
@@ -90,7 +90,7 @@ class Client
     {
         $url = $this->getProfileUrl($email);
 
-        $httpClient =& $this->httpClient;
+        $httpClient = &$this->httpClient;
         $response = $httpClient->get($url);
 
         $data = $response->json();
@@ -101,11 +101,11 @@ class Client
     /**
      * Get user avatar image URL.
      *
-     * @param string  $email     User email.
-     * @param integer $size      Image size (default 80).
-     * @param string  $extension Image extension (default jpg).
-     * @param integer $default   Error response (default 404).
-     * @param string  $rating    Image rating (default G).
+     * @param string $email     User email.
+     * @param int    $size      Image size (default 80).
+     * @param string $extension Image extension (default jpg).
+     * @param int    $default   Error response (default 404).
+     * @param string $rating    Image rating (default G).
      *
      * @return string
      */
@@ -127,11 +127,11 @@ class Client
     /**
      * Get user avatar image (as base 64 URI).
      *
-     * @param string  $email     User email.
-     * @param integer $size      Image size (default 80).
-     * @param string  $extension Image extension (default jpg).
-     * @param integer $default   Error response (default 404).
-     * @param string  $rating    Image rating (default G).
+     * @param string $email     User email.
+     * @param int    $size      Image size (default 80).
+     * @param string $extension Image extension (default jpg).
+     * @param int    $default   Error response (default 404).
+     * @param string $rating    Image rating (default G).
      *
      * @return string
      */
@@ -152,7 +152,7 @@ class Client
      *
      * @param string $email User email.
      *
-     * @return boolean
+     * @return bool
      */
     public function exists($email)
     {

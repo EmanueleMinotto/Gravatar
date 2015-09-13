@@ -57,7 +57,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testGetProfileUrl($email, $format = 'json', array $options = array())
+    public function testGetProfileUrl($email, $format = 'json', array $options = [])
     {
         $client = new Client();
 
@@ -127,11 +127,11 @@ class ClientTest extends PHPUnit_Framework_TestCase
     /**
      * Test gravatar.com avatars URLs.
      *
-     * @param string  $email     User email.
-     * @param integer $size      Image size (default 80).
-     * @param string  $extension Image extension (default jpg).
-     * @param integer $default   Error response (default 404).
-     * @param string  $rating    Image rating (default G).
+     * @param string $email     User email.
+     * @param int    $size      Image size (default 80).
+     * @param string $extension Image extension (default jpg).
+     * @param int    $default   Error response (default 404).
+     * @param string $rating    Image rating (default G).
      * 
      * @covers ::getAvatarUrl
      * @dataProvider getAvatarMethodsDataProvider
@@ -151,11 +151,11 @@ class ClientTest extends PHPUnit_Framework_TestCase
     /**
      * Test gravatar.com avatars URLs (as data URIs).
      *
-     * @param string  $email     User email.
-     * @param integer $size      Image size (default 80).
-     * @param string  $extension Image extension (default jpg).
-     * @param integer $default   Error response (default 404).
-     * @param string  $rating    Image rating (default G).
+     * @param string $email     User email.
+     * @param int    $size      Image size (default 80).
+     * @param string $extension Image extension (default jpg).
+     * @param int    $default   Error response (default 404).
+     * @param string $rating    Image rating (default G).
      * 
      * @covers ::getAvatar
      * @dataProvider getAvatarMethodsDataProvider
